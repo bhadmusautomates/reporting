@@ -7,3 +7,4 @@ reports/
 cypress/videos/
 cypress/screenshots/
 results/
+outputs/

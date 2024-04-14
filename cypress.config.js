@@ -7,11 +7,18 @@ async function setupNodeEvents(on, config) {
 
   on('file:preprocessor', browserify.default(config));
 
+  require('cypress-mochawesome-reporter/plugin')(on);
+  
   return config
 
 }
 
 module.exports = defineConfig({
+  reporter:'cypress-mochawesome-reporter',
+  reporterOptions:{
+    reportDir: 'outputs/', 
+    reportPageTitle: 'test-report',
+  },
   e2e: {
     baseUrl: 'https://staging.trymima.com/',
     viewportHeight: 960,
